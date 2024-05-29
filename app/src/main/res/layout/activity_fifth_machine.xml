@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="@drawable/items_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MachineAct.FifthMachine">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivReturn"
+            android:layout_width="38dp"
+            android:layout_height="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.173"
+            app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/tvShopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/amiko"
+            android:gravity="center"
+            android:text="CC Jitters"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="239dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="365dp"
+            android:layout_height="184dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.532">
+
+            <LinearLayout
+                android:id="@+id/llFrappe"
+                android:layout_width="244dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvFrappe"
+                    android:layout_width="164dp"
+                    android:layout_height="36dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="center"
+                    android:text="Frappuccino"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/cbCaffe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko"
+                    android:text="Caffe Vanilla Frappuccino"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/cbGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko"
+                    android:text="Green Tea Creme Frappuccino"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/cbSmores"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko"
+                    android:text="S'mores Frappuccino"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/cbMocha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko"
+                    android:text="Mocha Frappuccino"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDiscount"
+                    android:layout_width="81dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="center"
+                    android:text="Discount"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/rgDiscount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/rb5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amiko"
+                        android:text="5%"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                    <RadioButton
+                        android:id="@+id/rb10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amiko"
+                        android:text="10%"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amiko"
+                        android:text="15%"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amiko"
+                        android:text="No Discount"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="198dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="291dp"
+            android:layout_height="172dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/llLabel"
+                android:layout_width="146dp"
+                android:layout_height="172dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="578dp">
+
+                <TextView
+                    android:id="@+id/tvSubtotal"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:text="Sub-Total:"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tvDisc"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:text="Discount:"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tvNetAmt"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:text="Net Amount:"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSub"
+                android:layout_width="147dp"
+                android:layout_height="171dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSubtotalDisp"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:hint="Sub-Total Here" />
+
+                <TextView
+                    android:id="@+id/tvDiscDisp"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:hint="Discount Here" />
+
+                <TextView
+                    android:id="@+id/tvNetAmtDisp"
+                    android:layout_width="145dp"
+                    android:layout_height="56dp"
+                    android:fontFamily="@font/amiko"
+                    android:gravity="start|center_vertical"
+                    android:hint="Net Amount Here" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnClearAll"
+            android:layout_width="102dp"
+            android:layout_height="54dp"
+            android:background="@drawable/buttons_background"
+            android:fontFamily="@font/amiko"
+            android:text="CLEAR ALL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toEndOf="@+id/btnCompute"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.136" />
+
+        <Button
+            android:id="@+id/btnCompute"
+            android:layout_width="103dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/buttons_background"
+            android:fontFamily="@font/amiko"
+            android:text="COMPUTE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.136" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

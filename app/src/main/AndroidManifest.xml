@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon=""
+        android:label="Judehub"
+        android:roundIcon=""
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyCompilation"
+        tools:targetApi="31">
+        <activity
+            android:name=".MachineAct.SixthMachineAct2"
+            android:exported="false" />
+        <activity
+            android:name=".MachineAct.SixthMachineAct"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MachineAct.FifthMachine"
+            android:exported="false" />
+        <activity
+            android:name=".MachineAct.FourthMachine"
+            android:exported="false" />
+        <activity
+            android:name=".MachineAct.SecondMachine"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.NinethGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.EighthGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.SeventhGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.SixthGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.FifthGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.FourthGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.ThirdGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.SecondGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.FirstGuided"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

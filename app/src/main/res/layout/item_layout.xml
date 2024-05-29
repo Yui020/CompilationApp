@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/items_background"
+    android:orientation="vertical"
+   >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="657dp"
+        android:layout_height="107dp">
+
+        <TextView
+            android:id="@+id/tvExercise"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/amiko"
+            android:gravity="center_vertical"
+            android:text="First Guided Exercise"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvNameChannel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvNameChannel" />
+
+        <TextView
+            android:id="@+id/tvNameChannel"
+            android:layout_width="187dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/amiko"
+            android:gravity="center_vertical"
+            android:text="First Guided Exercise"
+            android:textColor="#88ccec"
+            android:textColorLink="#1c3cb4"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvExercise"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.028"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

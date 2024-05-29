@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Compilation</string>
+    <string name="app_title">EMPLOYEE PAYROLL COMPUTATION</string>
+
+    <string name="employee_id">Employee ID:</string>
+    <string name="employee_name">Employee Name:</string>
+    <string name="position_code">Position Code:</string>
+    <string name="civil_status">Civil Status:</string>
+    <string name="days_worked">No. of Days Worked:</string>
+
+    <string name="name">Papsi</string>
+
+    <string name="radioBtnSingle">Single</string>
+    <string name="radioBtnMarried">Married</string>
+    <string name="radioBtnWidowed">Widowed</string>
+
+    <string name="btnCompute">Compute</string>
+    <string name="btnClear">Clear</string>
+
+</resources>
