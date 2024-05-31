@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCompilation"
         tools:targetApi="31">
+        <activity
+            android:name=".GuidedAct.EleventhGuidedResult2"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.EleventhGuided2"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.ThirteenthGuided"
+            android:exported="false" />
         <activity
             android:name=".MachineAct.SixthMachineAct2"
             android:exported="false" />
@@ -27,6 +38,15 @@
             android:exported="false" />
         <activity
             android:name=".MachineAct.SecondMachine"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.TwelvethGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.EleventhGuided"
+            android:exported="false" />
+        <activity
+            android:name=".GuidedAct.TenthGuided"
             android:exported="false" />
         <activity
             android:name=".GuidedAct.NinethGuided"

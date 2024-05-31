@@ -7,12 +7,18 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycompilation.GuidedAct.EighthGuided;
+import com.example.mycompilation.GuidedAct.EleventhGuided;
+import com.example.mycompilation.GuidedAct.EleventhGuided2;
 import com.example.mycompilation.GuidedAct.FirstGuided;
 import com.example.mycompilation.GuidedAct.FourthGuided;
+import com.example.mycompilation.GuidedAct.NinethGuided;
 import com.example.mycompilation.GuidedAct.SecondGuided;
 import com.example.mycompilation.GuidedAct.SeventhGuided;
 import com.example.mycompilation.GuidedAct.SixthGuided;
+import com.example.mycompilation.GuidedAct.TenthGuided;
 import com.example.mycompilation.GuidedAct.ThirdGuided;
+import com.example.mycompilation.GuidedAct.ThirteenthGuided;
+import com.example.mycompilation.GuidedAct.TwelvethGuided;
 import com.example.mycompilation.MachineAct.FifthMachine;
 import com.example.mycompilation.MachineAct.FourthMachine;
 import com.example.mycompilation.MachineAct.SecondMachine;
@@ -85,6 +91,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EighthGuided.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NinethGuided.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TenthGuided.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EleventhGuided.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG112.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EleventhGuided2.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TwelvethGuided.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnG13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ThirteenthGuided.class);
                 startActivity(intent);
             }
         });

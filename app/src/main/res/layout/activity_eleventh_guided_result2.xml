@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuidedAct.EleventhGuidedResult2">
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intent Guided Exercise"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintStart_toStartOf="@+id/guideline38"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNameGE11"
+        android:layout_width="274dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:text="Name:"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="@+id/guideline38"
+        app:layout_constraintTop_toTopOf="@+id/guideline39" />
+
+    <TextView
+        android:id="@+id/tvAgeGE11"
+        android:layout_width="274dp"
+        android:layout_height="38dp"
+        android:text="Age:"
+        app:layout_constraintEnd_toEndOf="@+id/tvNameGE11"
+        app:layout_constraintStart_toStartOf="@+id/tvNameGE11"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameGE11" />
+
+    <TextView
+        android:id="@+id/tvGenderGE11"
+        android:layout_width="272dp"
+        android:layout_height="38dp"
+        android:text="Gender:"
+        app:layout_constraintEnd_toEndOf="@+id/tvAgeGE11"
+        app:layout_constraintStart_toStartOf="@+id/tvAgeGE11"
+        app:layout_constraintTop_toBottomOf="@+id/tvAgeGE11" />
+
+    <TextView
+        android:id="@+id/tvSubjectsGE11"
+        android:layout_width="271dp"
+        android:layout_height="40dp"
+        android:text="Subjects:"
+        app:layout_constraintEnd_toEndOf="@+id/tvGenderGE11"
+        app:layout_constraintStart_toStartOf="@+id/tvGenderGE11"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenderGE11" />
+
+    <TextView
+        android:id="@+id/tvJobGE11"
+        android:layout_width="272dp"
+        android:layout_height="34dp"
+        android:text="Job:"
+        app:layout_constraintEnd_toEndOf="@+id/tvSubjectsGE11"
+        app:layout_constraintStart_toStartOf="@+id/tvSubjectsGE11"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubjectsGE11" />
+
+    <TextView
+        android:id="@+id/tvThesisGE11"
+        android:layout_width="268dp"
+        android:layout_height="57dp"
+        android:text="Thesis Topic:"
+        app:layout_constraintBottom_toTopOf="@+id/guideline41"
+        app:layout_constraintEnd_toEndOf="@+id/tvJobGE11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvJobGE11"
+        app:layout_constraintTop_toBottomOf="@+id/tvJobGE11"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="46dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="142dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="348dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="434dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
