@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background shape for the button -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/Greyish_Brown" />
+        </shape>
+    </item>
+    <!-- Arrow icon -->
+    <item
+        android:drawable="@drawable/back_arrow"
+        android:gravity="center" />
+</layer-list>

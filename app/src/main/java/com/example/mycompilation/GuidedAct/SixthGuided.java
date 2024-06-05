@@ -21,16 +21,23 @@ public class SixthGuided extends AppCompatActivity {
 
     CheckBox one, two, three, four;
     TextView result;
-    Button click;
-    ImageView ivReturn;
+    Button click, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sixth_guided);
         init();
-        returnClicked();
         checkedClicked();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void checkedClicked(){
@@ -75,14 +82,5 @@ public class SixthGuided extends AppCompatActivity {
         four = findViewById(R.id.chkFour);
         result = findViewById(R.id.tvResultGE6);
         click = findViewById(R.id.btnClickGE6);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

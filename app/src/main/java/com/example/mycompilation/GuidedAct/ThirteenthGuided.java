@@ -16,7 +16,7 @@ import com.example.mycompilation.R;
 public class ThirteenthGuided extends AppCompatActivity {
 
     EditText studentId, studentName, studentSemGrade;
-    Button addRecord, deleteRecord, editRecord, viewRecord, viewAllRecord;
+    Button addRecord, deleteRecord, editRecord, viewRecord, viewAllRecord, back;
     // SQLiteDatabase is the base class for working with a SQLite database
     // in Android and provides methods to open, query, update and close the database.
     // It provides the execSQL() method, which allows to execute an SQL statement directly.
@@ -38,6 +38,14 @@ public class ThirteenthGuided extends AppCompatActivity {
         editStudentRecord();
         viewStudentRecord();
         viewAllStudentRecords();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void init() {

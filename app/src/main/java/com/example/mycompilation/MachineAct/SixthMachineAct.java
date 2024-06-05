@@ -1,211 +1,154 @@
 package com.example.mycompilation.MachineAct;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.mycompilation.R;
-import com.example.mycompilation.databinding.ActivitySixthGuidedBinding;
-import com.example.mycompilation.databinding.ActivitySixthMachineAct2Binding;
-import com.example.mycompilation.databinding.ActivitySixthMachineBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SixthMachineAct extends AppCompatActivity {
-    private ActivitySixthMachineBinding binding;
-    private List<String> employeeID;
-    private List<String> employeeName;
-    private List<String> days;
-    private List<String> positionCode;
-    private double rateperDay = 0;
-    private double civiltaxRate = 0;
-    private double sssRate = 0;
-    private double TaxRate = 0;
-    private String cvStatus = "";
-    private Employee employee;
+
+    private Spinner employeeID, employeePosition, employeeDaysWorked;
+    private TextView employeeName;
+    private RadioGroup status;
+    private RadioButton single, married, widowed;
+    private Button compute, clear, back;
+    private ArrayList<String> emp_id, emp_name, emp_position, emp_days_worked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySixthMachineBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        addToList();
-        setSpinnerAdapter();
-        spinnerClicked();
-        TaxRate();
-        btnComputeClicked();
-        binding.radioGroup.check(R.id.rb1);
-        btnClear();
-    }
+        setContentView(R.layout.activity_sixth_machine);
 
-    private void btnClear(){
-        binding.btnClear.setOnClickListener(new View.OnClickListener() {
+        // Initializing ArrayLists
+        emp_id = new ArrayList<>();
+        emp_name = new ArrayList<>();
+        emp_position = new ArrayList<>();
+        emp_days_worked = new ArrayList<>();
+
+        employeeID = findViewById(R.id.id_spinner);
+        employeePosition = findViewById(R.id.position_spinner);
+        employeeDaysWorked = findViewById(R.id.days_worked_spinner);
+        employeeName = findViewById(R.id.display_employee_name);
+        status = findViewById(R.id.rdg_status);
+        single = findViewById(R.id.rdb_single);
+        married = findViewById(R.id.rdb_married);
+        widowed = findViewById(R.id.rdb_widowed);
+        compute = findViewById(R.id.btn_compute);
+        clear = findViewById(R.id.btn_clear);
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.spinnerEmpID.setSelection(0);
-                binding.spinnerDaysWorked.setSelection(0);
-                binding.spinnerPosCode.setSelection(0);
-                binding.radioGroup.check(R.id.rb1);
+                onBackPressed();
             }
         });
-    }
-    private void btnComputeClicked(){
-        binding.btnCompute.setOnClickListener(new View.OnClickListener() {
+
+        status.check(single.getId());
+        if (getIntent().getBooleanExtra("CLEAR_SELECTION", false)) {
+            clearSelection();
+        }
+
+        // Initialize lists in employee ids
+        emp_id.add("EMP0001");
+        emp_id.add("EMP0002");
+        emp_id.add("EMP0003");
+        emp_id.add("EMP0004");
+        emp_id.add("EMP0005");
+
+        // Initialize lists in employee names
+        emp_name.add("Elgin");
+        emp_name.add("Leila");
+        emp_name.add("Jenny");
+        emp_name.add("Claire");
+        emp_name.add("Faith");
+
+        // Initialize lists in position codes
+        emp_position.add("A");
+        emp_position.add("B");
+        emp_position.add("C");
+
+        // Create a loop to initialize lists in number of days
+        for (int i = 0; i <= 31; i++) {
+            emp_days_worked.add(String.valueOf(i));
+        }
+
+
+        // Call methods
+        loadSpinnerData(employeeID, emp_id);
+        loadSpinnerData(employeePosition, emp_position);
+        loadSpinnerData(employeeDaysWorked, emp_days_worked);
+
+        // Set listeners
+        employeeID.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                String id = binding.spinnerEmpID.getSelectedItem().toString();
-                String name = binding.textView6.getText().toString();
-                String posCode = binding.spinnerPosCode.getSelectedItem().toString();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedEmployeeId = employeeID.getSelectedItem().toString();
+                String selectedEmployeeName = emp_name.get(position);
+                employeeName.setText(selectedEmployeeName);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
-                String day = binding.spinnerDaysWorked.getSelectedItem().toString();
-                double basicPay = computeBasPay();
-                double sssContri = computeSSS();
-                double withHolding = computeWithHoldingTax();
-                double netPay = getNetPay();
+            }
+        });
+        compute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                employee = new Employee(id, name, posCode, cvStatus, day, basicPay, sssContri, withHolding, netPay);
+                String selectedEmployeeID = employeeID.getSelectedItem().toString();
+                String selectedEmployeeName = employeeName.getText().toString();
+                String selectedPosition = employeePosition.getSelectedItem().toString();
+                RadioButton selectedButton = findViewById(status.getCheckedRadioButtonId());
+                String selectedEmployeeStatus = selectedButton.getText().toString();
 
-                Intent intent  = new Intent(SixthMachineAct.this, SixthMachineAct2.class);
-                intent.putExtra("Employee", employee);
+                int selectedDaysWorked = Integer.parseInt(employeeDaysWorked.getSelectedItem().toString());
+
+                Intent intent = new Intent(SixthMachineAct.this, ComputeActivity.class);
+                intent.putExtra("EMPLOYEE_ID", selectedEmployeeID);
+                intent.putExtra("EMPLOYEE_NAME", selectedEmployeeName);
+                intent.putExtra("EMPLOYEE_POSITION", selectedPosition);
+                intent.putExtra("EMPLOYEE_STATUS", selectedEmployeeStatus);
+                intent.putExtra("DAYS_WORKED", selectedDaysWorked);
                 startActivity(intent);
             }
         });
-    }
-    private double computeBasPay(){
-        double basPay = 0;
-        basPay = Double.parseDouble(binding.spinnerDaysWorked.getSelectedItem().toString()) * rateperDay;
-        return basPay;
-    }
 
-    private double computeSSS(){
-        double sssContri = 0;
-        sssContri = computeBasPay() * getSSSRate();
-        return sssContri;
-    }
-
-    private double getSSSRate(){
-        double sssRate = 0;
-        double basPay = computeBasPay();
-        if(basPay == 10000 || basPay >= 10000){
-            sssRate = 0.07;
-        }else if(basPay >= 5000 || basPay <= 9999){
-            sssRate = 0.05;
-        } else if(basPay >= 1000 || basPay <= 4999){
-            sssRate = 0.03;
-        }else if(basPay < 1000){
-            sssRate = 0.01;
-        }
-        return sssRate;
-    }
-    private double computeWithHoldingTax(){
-        double withHT = 0;
-        withHT = computeBasPay() * TaxRate;
-        return withHT;
-    }
-
-    private double getNetPay(){
-        double netPay = 0;
-        netPay = computeBasPay() - (computeSSS() + computeWithHoldingTax());
-        return netPay;
-    }
-    private void TaxRate(){
-        binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        clear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rb1) {
-                    TaxRate = 0.10;
-                    cvStatus = "Single";
-                } else if (checkedId == R.id.rb2) {
-                    TaxRate = 0.05;
-                    cvStatus = "Married";
-                } else if (checkedId == R.id.rb3) {
-                    TaxRate = 0.05;
-                    cvStatus = "Widowed";
-                }
+            public void onClick(View view) {
+                clearSelection();
             }
         });
     }
-    public void spinnerClicked(){
-        binding.spinnerEmpID.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                binding.textView6.setText(employeeName.get(position));
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
-        binding.spinnerPosCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        rateperDay = 500;
-                        break;
-                    case 1:
-                        rateperDay = 400;
-                        break;
-                    case 2:
-                        rateperDay = 300;
-                        break;
-                    default:
-                        rateperDay = 0;
-                        break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+    // Method to load data in spinners
+    public void loadSpinnerData(Spinner spinner, List<String> data) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
-    public void addToList(){
-        employeeID = new ArrayList<>();
-        employeeName  = new ArrayList<>();
-        positionCode = new ArrayList<>();
-        days = new ArrayList<>();
 
-        employeeID.add("EMP12303");
-        employeeID.add("K12047352");
-        employeeID.add("K12462352");
-        employeeID.add("K14456452");
-        employeeID.add("K54337352");
-        employeeID.add("K12043643");
+    // Method to clear selections
+    public void clearSelection() {
 
-        employeeName.add("Paps");
-        employeeName.add("Jude Mikel");
-        employeeName.add("Aarron");
-        employeeName.add("FaithS Sabelito");
-        employeeName.add("Claire S2k");
-        employeeName.add("Rey");
-
-        positionCode.add("A");
-        positionCode.add("B");
-        positionCode.add("C");
-
-
-        for (int i = 1; i <= 30; i++){
-            days.add(String.valueOf(i));
-        }
-    }
-    private void setSpinnerAdapter(){
-        ArrayAdapter idSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, employeeID);
-        binding.spinnerEmpID.setAdapter(idSpinnerAdapter);
-        ArrayAdapter idPositionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, positionCode);
-        binding.spinnerPosCode.setAdapter(idPositionAdapter);
-        ArrayAdapter daysAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, days);
-        binding.spinnerDaysWorked.setAdapter(daysAdapter);
+        status.clearCheck();
+        status.check(single.getId());
+        employeeID.setSelection(0);
+        employeePosition.setSelection(0);
+        employeeDaysWorked.setSelection(0);
     }
 }

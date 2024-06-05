@@ -5,30 +5,74 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/homepage_bg"
     tools:context=".GuidedAct.ThirteenthGuided">
 
-    <TextView
-        android:id="@+id/textView112"
-        android:layout_width="214dp"
-        android:layout_height="66dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="SQLite Demo"
-        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/Teal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/Charcoal_Gray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_back_button"
+        android:contentDescription="Back Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="SQLite Demo"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/etStudentIDD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Student ID"
         android:inputType="text"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
     <EditText
         android:id="@+id/etStudentNAme"
@@ -37,6 +81,10 @@
         android:ems="10"
         android:hint="Student Name"
         android:inputType="text"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/etStudentIDD"
         app:layout_constraintStart_toStartOf="@+id/etStudentIDD"
         app:layout_constraintTop_toBottomOf="@+id/etStudentIDD" />
@@ -48,31 +96,39 @@
         android:ems="10"
         android:hint="Semestral Grade"
         android:inputType="numberPassword"
-        app:layout_constraintBottom_toTopOf="@+id/guideline23"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/etStudentNAme"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etStudentNAme"
-        app:layout_constraintTop_toBottomOf="@+id/etStudentNAme"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etStudentNAme" />
 
     <Button
         android:id="@+id/btnAddRecord"
-        android:layout_width="142dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/landing_button"
+        android:fontFamily="@font/poppins"
         android:text="ADD RECORD"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintTop_toBottomOf="@+id/etStudentSemGrade" />
 
     <Button
         android:id="@+id/btnEditRecord"
-        android:layout_width="142dp"
-        android:layout_height="51dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/landing_button"
+        android:fontFamily="@font/poppins"
         android:text="EDIT RECORD"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/btnAddRecord"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnAddRecord"
@@ -80,71 +136,46 @@
 
     <Button
         android:id="@+id/btnDeleteRecord"
-        android:layout_width="151dp"
+        android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/landing_button"
+        android:fontFamily="@font/poppins"
         android:text="DELETE RECORD"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toStartOf="@+id/guideline27"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintTop_toBottomOf="@+id/etStudentSemGrade" />
 
     <Button
         android:id="@+id/btnViewRecord"
-        android:layout_width="154dp"
-        android:layout_height="49dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/landing_button"
+        android:fontFamily="@font/poppins"
         android:text="VIEW RECORD"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/btnDeleteRecord"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnDeleteRecord"
-        app:layout_constraintTop_toBottomOf="@+id/btnDeleteRecord"
-        app:layout_constraintVertical_bias="0.424" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDeleteRecord" />
 
     <Button
         android:id="@+id/btnviewAllRecord"
-        android:layout_width="174dp"
-        android:layout_height="52dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="204dp"
+        android:background="@drawable/landing_button"
+        android:fontFamily="@font/poppins"
         android:text="VIEW ALL RECORD"
-        app:layout_constraintBottom_toTopOf="@+id/guideline26"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline24"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintTop_toBottomOf="@+id/etStudentSemGrade" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="140dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="329dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="501dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="658dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

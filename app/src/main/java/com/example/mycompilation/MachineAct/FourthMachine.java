@@ -21,24 +21,14 @@ import com.example.mycompilation.R;
 import java.text.DecimalFormat;
 
 public class FourthMachine extends AppCompatActivity {
-    ImageView ivReturn;
-    private TextView tvStudentName;
-    private TextView tvSemGrade;
-    private TextView tvPEquivalent;
-    private TextView tvRemarks;
+    private TextView tvStudentName, tvSemGrade, tvPEquivalent, tvRemarks;
 
-    private EditText studentName;
-    private EditText Prelim;
-    private EditText Midterm;
-    private EditText Finals;
+    private EditText studentName, Prelim, Midterm, Finals;
 
-    private Button btnCompute;
-    private Button btnNewEnt;
+    private Button btnCompute, btnNewEnt, back;
 
     private String name;
-    private double prelimG;
-    private double midtermG;
-    private double finalG;
+    private double prelimG, midtermG, finalG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +36,15 @@ public class FourthMachine extends AppCompatActivity {
         init();
         computeClick();
         newEventClicked();
-        returnClicked();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public double average(double prelim, double midterm, double Final){
@@ -118,7 +116,7 @@ public class FourthMachine extends AppCompatActivity {
             public void onClick(View view) {
 
                 builder.setTitle("Warning Message").setMessage("All Entries Correct?");
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
                         if(!studentName.getText().toString().isEmpty()  && !Prelim.getText().toString().isEmpty() && !Midterm.getText().toString().isEmpty() && !Finals.getText().toString().isEmpty()){
@@ -205,14 +203,5 @@ public class FourthMachine extends AppCompatActivity {
         Finals = findViewById(R.id.etFinal);
         btnCompute = findViewById(R.id.btnCompute);
         btnNewEnt = findViewById(R.id.btnNewEnt);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    private void returnClicked() {
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

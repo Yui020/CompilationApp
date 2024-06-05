@@ -19,14 +19,10 @@ import com.example.mycompilation.R;
 
 public class SecondMachine extends AppCompatActivity {
 
-    ImageView ivReturn;
     private EditText firstNumber;
     private EditText secondNumber;
     private TextView tvResult;
-    private Button addButton;
-    private Button subButton;
-    private Button divButton;
-    private Button multiButton;
+    private Button addButton, subButton, divButton, multiButton, back;
     private double result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,15 @@ public class SecondMachine extends AppCompatActivity {
         setContentView(R.layout.activity_second_machine);
         init();
         Clicked();
-        returnClicked();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void init(){
@@ -45,15 +49,6 @@ public class SecondMachine extends AppCompatActivity {
         divButton = findViewById(R.id.btnQuo);
         multiButton = findViewById(R.id.btnProd);
         tvResult = findViewById(R.id.tvResult);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    private void returnClicked() {
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     public void Clicked() {

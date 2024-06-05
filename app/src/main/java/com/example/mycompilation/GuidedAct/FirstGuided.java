@@ -20,16 +20,22 @@ import com.example.mycompilation.R;
 public class FirstGuided extends AppCompatActivity {
     EditText name, age;
     TextView result;
-    Button click;
-    ImageView ivReturn;
+    Button click, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_guided);
         init();
-        returnClicked();
         showResult();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void showResult(){
@@ -49,16 +55,6 @@ public class FirstGuided extends AppCompatActivity {
         age = findViewById(R.id.etAgeGE1);
         result = findViewById(R.id.tvResultGE1);
         click = findViewById(R.id.btnClickGE1);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
 }

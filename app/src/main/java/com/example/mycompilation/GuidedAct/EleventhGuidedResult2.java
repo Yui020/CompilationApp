@@ -1,6 +1,8 @@
 package com.example.mycompilation.GuidedAct;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +16,7 @@ import com.example.mycompilation.R;
 public class EleventhGuidedResult2 extends AppCompatActivity {
 
     TextView name, age, gender, subjects, job, thesis;
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,14 @@ public class EleventhGuidedResult2 extends AppCompatActivity {
         setContentView(R.layout.activity_eleventh_guided_result2);
         init();
         showResults();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void init(){
         name = findViewById(R.id.tvNameGE11);

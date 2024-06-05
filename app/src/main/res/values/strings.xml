@@ -17,4 +17,24 @@
     <string name="btnCompute">Compute</string>
     <string name="btnClear">Clear</string>
 
+    <string name="mp2">Machine Problem 2</string>
+    <string name="mp4">Machine Problem 4</string>
+    <string name="mp5">Machine Problem 5</string>
+    <string name="mp6">Machine Problem 6</string>
+
+    <string name="g1">Guided Activity 1</string>
+    <string name="g2">Guided Activity 2</string>
+    <string name="g3">Guided Activity 3</string>
+    <string name="g4">Guided Activity 4</string>
+    <string name="g5">Guided Activity 5</string>
+    <string name="g6">Guided Activity 6</string>
+    <string name="g7">Guided Activity 7</string>
+    <string name="g8">Guided Activity 8</string>
+    <string name="g9">Guided Activity 9</string>
+    <string name="g10">Guided Activity 10</string>
+    <string name="g11">Guided Activity 11</string>
+
+    <string name="g12">Image View and App Icon</string>
+    <string name="g13">Adding Images on Drawable</string>
+    <string name="g14">SQLite</string>
 </resources>

@@ -20,8 +20,8 @@ public class TenthGuided extends AppCompatActivity {
     WebView browser;
     AutoCompleteTextView suggestedURL;
     ArrayAdapter adapter;
-    Button submit;
-    String [] urls = {"google.com","yahoo.com","facebook.com","youtube.com"};
+    Button submit, back;
+    String [] urls = {"google.com","yahoo.com","facebook.com","youtube.com","instagram.com","pinterest.com"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,14 @@ public class TenthGuided extends AppCompatActivity {
         initializeWebView();
         loadWebURL();
 
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void initializeWebView(){

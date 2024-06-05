@@ -8,7 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:label="Judehub"
+        android:icon="@mipmap/ic_bmo"
+        android:label="BMOPlayz"
+        android:roundIcon="@mipmap/ic_bmo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCompilation"
         tools:targetApi="31">
@@ -22,7 +24,7 @@
             android:name=".GuidedAct.ThirteenthGuided"
             android:exported="false" />
         <activity
-            android:name=".MachineAct.SixthMachineAct2"
+            android:name=".MachineAct.ComputeActivity"
             android:exported="false" />
         <activity
             android:name=".MachineAct.SixthMachineAct"
@@ -49,7 +51,7 @@
             android:name=".GuidedAct.TenthGuided"
             android:exported="false" />
         <activity
-            android:name=".GuidedAct.NinethGuided"
+            android:name=".GuidedAct.NinthGuided"
             android:exported="false" />
         <activity
             android:name=".GuidedAct.EighthGuided"
@@ -84,6 +86,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LandingScreen"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

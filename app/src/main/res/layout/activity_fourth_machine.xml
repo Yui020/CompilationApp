@@ -1,247 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/items_background"
+    android:background="@drawable/homepage_bg"
     android:layout_height="match_parent"
     tools:context=".MachineAct.FourthMachine">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="50dp"
+        android:background="@color/Teal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/ivReturn"
-            android:layout_width="38dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.042"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.219"
-            app:srcCompat="@drawable/baseline_arrow_back_24" />
-
-        <EditText
-            android:id="@+id/etStudentName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:capitalize="words"
-            android:ems="10"
-            android:fontFamily="@font/amiko"
-            android:hint="Enter Student Name"
-            android:inputType="text|textCapWords"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.741" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="217dp">
+        android:layout_height="60dp"
+        android:background="@color/Charcoal_Gray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/etMidterm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/amiko"
-            android:hint="Midterm"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/etFinal"
-            app:layout_constraintEnd_toEndOf="@+id/etPrelim"
-            app:layout_constraintHorizontal_bias="0.253"
-            app:layout_constraintStart_toStartOf="@+id/etPrelim" />
-
-        <TextView
-            android:id="@+id/tvEnterGrades"
-            android:layout_width="169dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/amiko"
-            app:layout_constraintBottom_toTopOf="@+id/etPrelim"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.21"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Enter Grades:" />
-
-        <EditText
-            android:id="@+id/etFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:ems="10"
-            android:fontFamily="@font/amiko"
-            android:hint="Final"
-            android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/etMidterm"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etMidterm" />
-
-        <EditText
-            android:id="@+id/etPrelim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/amiko"
-            android:hint="Prelim"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/etMidterm"
-            app:layout_constraintEnd_toEndOf="@+id/tvEnterGrades"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvEnterGrades" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="206dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintVertical_bias="0.654"
+        tools:layout_editor_absoluteX="16dp">
 
-        <TextView
-            android:id="@+id/tvSG"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/amiko"
-            android:text="Semestral Grade:"
-            app:layout_constraintBottom_toTopOf="@+id/tvPE"
-            app:layout_constraintEnd_toEndOf="@+id/tvSN"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvSN" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="19dp">
 
-        <TextView
-            android:id="@+id/tvRemarks"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="36dp"
-            android:fontFamily="@font/amiko"
-            android:text="Remarks:"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvPE"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvPE" />
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_back_button"
+                android:contentDescription="Back Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.044"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvResults"
-            android:layout_width="111dp"
-            android:layout_height="26dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/amiko"
-            android:text="Results:"
-            app:layout_constraintBottom_toTopOf="@+id/tvSN"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.213"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="Machine Problem 4"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvPE"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/amiko"
-            android:text="Pt. Equivalent: "
-            app:layout_constraintBottom_toTopOf="@+id/tvRemarks"
-            app:layout_constraintEnd_toEndOf="@+id/tvSG"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvSG" />
+            <EditText
+                android:id="@+id/etStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="Enter Student Name"
+                android:inputType="text|textCapWords"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
-        <TextView
-            android:id="@+id/tvSN"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/amiko"
-            android:text="Student Name:"
-            app:layout_constraintBottom_toTopOf="@+id/tvSG"
-            app:layout_constraintEnd_toEndOf="@+id/tvResults"
-            app:layout_constraintHorizontal_bias="0.117"
-            app:layout_constraintStart_toStartOf="@+id/tvResults" />
+            <TextView
+                android:id="@+id/tvEnterGrades"
+                android:layout_width="169dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Enter Grades:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etStudentName" />
 
-        <TextView
-            android:id="@+id/tvSNDisp"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="96dp"
-            android:fontFamily="@font/amiko"
-            android:text="SN"
-            app:layout_constraintBottom_toTopOf="@+id/tvSGDisp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toEndOf="@+id/tvSN"
-            app:layout_constraintTop_toTopOf="@+id/tvSN"
-            app:layout_constraintVertical_bias="0.0" />
+            <EditText
+                android:id="@+id/etPrelim"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Prelim"
+                android:inputType="number"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.278"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEnterGrades" />
 
-        <TextView
-            android:id="@+id/tvPEDisp"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/amiko"
-            android:text="PE"
-            app:layout_constraintBottom_toTopOf="@+id/tvRemarksDisp"
-            app:layout_constraintEnd_toEndOf="@+id/tvSGDisp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/tvPE" />
+            <EditText
+                android:id="@+id/etMidterm"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="Midterm"
+                android:inputType="number"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.278"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPrelim" />
 
-        <TextView
-            android:id="@+id/tvSGDisp"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/amiko"
-            android:text="SG"
-            app:layout_constraintBottom_toTopOf="@+id/tvPEDisp"
-            app:layout_constraintEnd_toEndOf="@+id/tvSNDisp"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tvSG" />
+            <EditText
+                android:id="@+id/etFinal"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="Final"
+                android:inputType="number"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.278"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etMidterm" />
 
-        <TextView
-            android:id="@+id/tvRemarksDisp"
-            android:layout_width="128dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="36dp"
-            android:fontFamily="@font/amiko"
-            android:text="Remark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvPEDisp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/tvRemarks" />
+            <TextView
+                android:id="@+id/tvResults"
+                android:layout_width="111dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Results:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etFinal" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvSN"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="16dp"
+                android:text="Student Name:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvResults" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvSG"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Semestral Grade:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSN" />
 
-        <Button
-            android:id="@+id/btnNewEnt"
-            android:layout_width="125dp"
-            android:layout_height="54dp"
-            android:background="@drawable/buttons_background"
-            android:fontFamily="@font/amiko"
-            android:text="New Entry"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnCompute"
-            app:layout_constraintHorizontal_bias="0.853"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.201" />
+            <TextView
+                android:id="@+id/tvPE"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Pt. Equivalent: "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSG" />
 
-        <Button
-            android:id="@+id/btnCompute"
-            android:layout_width="123dp"
-            android:layout_height="55dp"
-            android:layout_marginEnd="56dp"
-            android:background="@drawable/buttons_background"
-            android:fontFamily="@font/amiko"
-            android:text="Compute"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.194" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvRemarks"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Remarks:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPE" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvSNDisp"
+                android:layout_width="128dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="70dp"
+                android:text="SN"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintStart_toEndOf="@+id/tvSN"
+                app:layout_constraintTop_toBottomOf="@+id/etFinal" />
+
+            <TextView
+                android:id="@+id/tvSGDisp"
+                android:layout_width="128dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="70dp"
+                android:text="SG"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvSG"
+                app:layout_constraintTop_toBottomOf="@+id/tvSNDisp" />
+
+            <TextView
+                android:id="@+id/tvPEDisp"
+                android:layout_width="128dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="70dp"
+                android:text="PE"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvPE"
+                app:layout_constraintTop_toBottomOf="@+id/tvSGDisp" />
+
+            <TextView
+                android:id="@+id/tvRemarksDisp"
+                android:layout_width="128dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="70dp"
+                android:text="Remark"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPEDisp" />
+
+            <Button
+                android:id="@+id/btnNewEnt"
+                android:layout_width="125dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/landing_button"
+                android:text="New Entry"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRemarks" />
+
+            <Button
+                android:id="@+id/btnCompute"
+                android:layout_width="125dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/landing_button"
+                android:text="Compute"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnNewEnt"
+                app:layout_constraintTop_toBottomOf="@+id/tvRemarksDisp" />
+
+            <Space
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:layout_constraintTop_toBottomOf="@id/btnNewEnt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

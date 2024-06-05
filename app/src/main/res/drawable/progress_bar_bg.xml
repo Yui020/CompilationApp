@@ -9,7 +9,7 @@
 
                 <gradient
                     android:endColor = "@color/black"
-                    android:startColor="@color/orange"
+                    android:startColor="@color/Light_Beige"
                     android:useLevel="true"/>
             </shape>
         </item>

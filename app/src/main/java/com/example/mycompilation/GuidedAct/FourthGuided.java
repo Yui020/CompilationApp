@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +15,7 @@ public class FourthGuided extends AppCompatActivity {
 
     EditText username, password;
     TextView result;
-    Button login;
-    ImageView ivReturn;
+    Button login, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +23,20 @@ public class FourthGuided extends AppCompatActivity {
         setContentView(R.layout.activity_fourth_guided);
         init();
         showResult();
-        returnClicked();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void showResult(){
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("judeigoprey") && password.getText().toString().equals("judeigop")){
+                if(username.getText().toString().equals("elginbarett") && password.getText().toString().equals("elgin123")){
                     result.setText("Welcome " + username.getText().toString() +"!");
                     result.setTextColor(Color.GREEN);
                     clearEntry();
@@ -58,15 +63,6 @@ public class FourthGuided extends AppCompatActivity {
         password = findViewById(R.id.etPasswordGE4);
         result = findViewById(R.id.tvResultGE4);
         login = findViewById(R.id.btnLoginGE4);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }
 

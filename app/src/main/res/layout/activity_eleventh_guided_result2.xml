@@ -5,103 +5,138 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/homepage_bg"
     tools:context=".GuidedAct.EleventhGuidedResult2">
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Intent Guided Exercise"
-        app:layout_constraintBottom_toTopOf="@+id/guideline39"
-        app:layout_constraintEnd_toStartOf="@+id/guideline40"
-        app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/Teal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/Charcoal_Gray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:elevation="10dp">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_back_button"
+        android:contentDescription="Back Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <TextView
-        android:id="@+id/tvNameGE11"
-        android:layout_width="274dp"
-        android:layout_height="42dp"
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Guided Activity 11"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
         android:layout_marginTop="12dp"
-        android:text="Name:"
-        app:layout_constraintEnd_toStartOf="@+id/guideline40"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline39" />
-
-    <TextView
-        android:id="@+id/tvAgeGE11"
-        android:layout_width="274dp"
-        android:layout_height="38dp"
-        android:text="Age:"
-        app:layout_constraintEnd_toEndOf="@+id/tvNameGE11"
-        app:layout_constraintStart_toStartOf="@+id/tvNameGE11"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameGE11" />
-
-    <TextView
-        android:id="@+id/tvGenderGE11"
-        android:layout_width="272dp"
-        android:layout_height="38dp"
-        android:text="Gender:"
-        app:layout_constraintEnd_toEndOf="@+id/tvAgeGE11"
-        app:layout_constraintStart_toStartOf="@+id/tvAgeGE11"
-        app:layout_constraintTop_toBottomOf="@+id/tvAgeGE11" />
-
-    <TextView
-        android:id="@+id/tvSubjectsGE11"
-        android:layout_width="271dp"
-        android:layout_height="40dp"
-        android:text="Subjects:"
-        app:layout_constraintEnd_toEndOf="@+id/tvGenderGE11"
-        app:layout_constraintStart_toStartOf="@+id/tvGenderGE11"
-        app:layout_constraintTop_toBottomOf="@+id/tvGenderGE11" />
-
-    <TextView
-        android:id="@+id/tvJobGE11"
-        android:layout_width="272dp"
-        android:layout_height="34dp"
-        android:text="Job:"
-        app:layout_constraintEnd_toEndOf="@+id/tvSubjectsGE11"
-        app:layout_constraintStart_toStartOf="@+id/tvSubjectsGE11"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubjectsGE11" />
-
-    <TextView
-        android:id="@+id/tvThesisGE11"
-        android:layout_width="268dp"
-        android:layout_height="57dp"
-        android:text="Thesis Topic:"
-        app:layout_constraintBottom_toTopOf="@+id/guideline41"
-        app:layout_constraintEnd_toEndOf="@+id/tvJobGE11"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Intent Guided Exercise"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvJobGE11"
-        app:layout_constraintTop_toBottomOf="@+id/tvJobGE11"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline38"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="46dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        app:layout_constraintVertical_bias="0.254">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline39"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="142dp" />
+        <TextView
+            android:id="@+id/tvNameGE11"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Name:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="348dp" />
+        <TextView
+            android:id="@+id/tvAgeGE11"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Age:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline41"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="434dp" />
+        <TextView
+            android:id="@+id/tvGenderGE11"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Gender:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvSubjectsGE11"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Subjects:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvJobGE11"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Job:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvThesisGE11"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Thesis Topic:"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

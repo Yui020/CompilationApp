@@ -20,26 +20,13 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.mycompilation.R;
 
 public class FifthMachine extends AppCompatActivity {
-    ImageView ivReturn;
-    CheckBox cbCaffe;
-    CheckBox cbGreen;
-    CheckBox cbSmores;
-    CheckBox cbMocha;
+    CheckBox cbCaffe, cbGreen, cbSmores, cbMocha;
     RadioGroup rgDiscount;
-    TextView tvSubDisp;
-    TextView tvDisDisp;
-    TextView tvNetAmtDisp;
-    Button btnCompute;
-    Button btnClearAll;
-    RadioButton rbNoDiscountt;
-    RadioButton rb5;
-    RadioButton rb10;
-    RadioButton rb15;
+    TextView tvSubDisp, tvDisDisp, tvNetAmtDisp;
+    Button btnCompute, btnClearAll, back;
+    RadioButton rbNoDiscountt, rb5, rb10, rb15;
 
-    double subAmount = 0;
-    double discount = 0;
-    double netAmount = 0;
-    double totalDiscount = 0;
+    double subAmount = 0, discount = 0, netAmount = 0, totalDiscount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +35,17 @@ public class FifthMachine extends AppCompatActivity {
         init();
         buttonsClicked();
         listenersAction();
-        returnClicked();
-    }
-    private void returnClicked() {
-        ivReturn.setOnClickListener(new View.OnClickListener() {
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
     }
+
     public void listenersAction(){
         cbCaffe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -192,6 +180,5 @@ public class FifthMachine extends AppCompatActivity {
         rb10 = findViewById(R.id.rb10);
         rb15 = findViewById(R.id.rb15);
         rgDiscount.check(R.id.rbNoDiscount);
-        ivReturn = findViewById(R.id.ivReturn);
     }
 }

@@ -3,6 +3,7 @@ package com.example.mycompilation.GuidedAct;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,15 +23,22 @@ import com.example.mycompilation.R;
 public class FifthGuided extends AppCompatActivity {
     RadioButton red, blue, yellow, green;
     RadioGroup rbGroup;
-    ImageView ivReturn;
-    LinearLayout main;
+    ConstraintLayout main;
+    Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth_guided);
         init();
-        returnClicked();
         radioButtonListener();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void showSelectedColor(){
         if(red.isChecked()){
@@ -93,16 +102,7 @@ public class FifthGuided extends AppCompatActivity {
         blue = findViewById(R.id.rbBlue);
         yellow = findViewById(R.id.rbYellow);
         green = findViewById(R.id.rbGreen);
-        ivReturn = findViewById(R.id.ivReturn);
         rbGroup = findViewById(R.id.rgColors);
         main = findViewById(R.id.main);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

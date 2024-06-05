@@ -4,11 +4,12 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,10 +22,8 @@ import com.example.mycompilation.R;
 
 public class SecondGuided extends AppCompatActivity {
     EditText name;
-    ImageView ivReturn;
-    Button click;
+    Button click, back;
     Toast toast;
-    LinearLayout main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +31,30 @@ public class SecondGuided extends AppCompatActivity {
         setContentView(R.layout.activity_second_guided);
         init();
         showResult();
-        returnClicked();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
+
     public void showResult(){
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toast = Toast.makeText(getApplicationContext(),
-                        "Hello " + name.getText().toString() + "! \nWelcome to Android Development!",Toast.LENGTH_SHORT);
-                view = toast.getView();
-                view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.toast_layout, null);
+
+                TextView text = layout.findViewById(R.id.text);
+                text.setText("Hello " + name.getText().toString() + "! \nWelcome to Android Development!");
+
+                toast = new Toast(getApplicationContext());
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.setView(layout);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
@@ -51,16 +64,5 @@ public class SecondGuided extends AppCompatActivity {
     public void init(){
         name = findViewById(R.id.etNameGE2);
         click = findViewById(R.id.btnClickGE2);
-        ivReturn = findViewById(R.id.ivReturn2);
-        main = findViewById(R.id.main);
-    }
-
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

@@ -1,38 +1,41 @@
 package com.example.mycompilation.GuidedAct;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mycompilation.R;
 
 public class EighthGuided extends AppCompatActivity {
 
+    Button back;
     Spinner names;
     TextView result;
     ArrayAdapter adapter;
-    ImageView ivReturn;
-    String[] listOfNames = {"Name Here", "Jude", "Mikel", "Rey", "Arthur", "Artugue", "Pole", "Andrei", "Buendia", "Aarron", "Villamento", "Mark", "Anthony", "Toralde"};
+    String[] listOfNames = {"Name Here", "Elgin", "Claire", "Leila", "Faith", "Jenny", "Jude", "Mark", "Arthur", "Pole", "Aaron"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eighth_guided);
         init();
-        returnClicked();
         showSelectedName();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void showSelectedName(){
         names.setAdapter(adapter);
@@ -59,14 +62,5 @@ public class EighthGuided extends AppCompatActivity {
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listOfNames);
         names = findViewById(R.id.spnrNamesGE8);
         result = findViewById(R.id.tvResultGE4);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

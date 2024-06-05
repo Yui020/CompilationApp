@@ -31,7 +31,8 @@ public class EleventhGuided2 extends AppCompatActivity {
     CheckBox appdet, intcomp, comprog1, comprog2;
     Spinner job;
     ListView thesis;
-    Button submit;
+    Button submit, back;
+
     //An intent is an abstract description of an operation to be performed.
     // It can be used with startActivity to launch an Activity, broadcastIntent to send it
     // to any interested BroadcastReceiver components, and Context.startService(Intent) or
@@ -49,6 +50,14 @@ public class EleventhGuided2 extends AppCompatActivity {
         setContentView(R.layout.activity_eleventh_guided2);
         init();
         displayResult();
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void init() {
@@ -142,7 +151,7 @@ public class EleventhGuided2 extends AppCompatActivity {
         thesis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "You select " + thesisTopics[position],
+                Toast.makeText(getApplicationContext(), "You selected " + thesisTopics[position],
                         Toast.LENGTH_SHORT).show();
                 topic = thesisTopics[position];
             }

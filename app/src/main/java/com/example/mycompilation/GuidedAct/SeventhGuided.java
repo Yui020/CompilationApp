@@ -22,7 +22,6 @@ import com.example.mycompilation.R;
 public class SeventhGuided extends AppCompatActivity {
     RatingBar ratingBar;
     TextView rate;
-    ImageView ivReturn;
     Button click, close;
     AlertDialog.Builder alertDialogBuilder;
 
@@ -31,7 +30,6 @@ public class SeventhGuided extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seventh_guided);
         init();
-        returnClicked();
         showRating();
     }
 
@@ -44,7 +42,7 @@ public class SeventhGuided extends AppCompatActivity {
                 }else{
                     rate.setTextColor(Color.RED);
                 }
-                rate.setText("Rate: " + ratingBar.getRating());
+                rate.setText("Rating: " + ratingBar.getRating());
             }
         });
         click.setOnClickListener(new View.OnClickListener() {
@@ -113,14 +111,5 @@ public class SeventhGuided extends AppCompatActivity {
         rate = findViewById(R.id.tvResultGE6);
         click = findViewById(R.id.btnClickGE6);
         close = findViewById(R.id.btnCloseGE7);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

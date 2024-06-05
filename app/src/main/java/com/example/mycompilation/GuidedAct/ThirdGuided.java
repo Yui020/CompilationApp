@@ -17,10 +17,9 @@ import com.example.mycompilation.R;
 public class ThirdGuided extends AppCompatActivity {
 
     EditText num1, num2;
-    Button sum, ave;
+    Button sum, ave, back;
     Toast toast;
     View view;
-    ImageView ivReturn;
     double firstNum = 0, secondNum = 0, total = 0;
 
     @Override
@@ -29,7 +28,15 @@ public class ThirdGuided extends AppCompatActivity {
         setContentView(R.layout.activity_third_guided);
         init();
         computeTotal();
-        returnClicked();
+
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void computeTotal(){
         sum.setOnClickListener(new View.OnClickListener() {
@@ -80,14 +87,5 @@ public class ThirdGuided extends AppCompatActivity {
         num2 = findViewById(R.id.etNum2GE3);
         sum = findViewById(R.id.btnLoginGE4);
         ave = findViewById(R.id.btnAveGE3);
-        ivReturn = findViewById(R.id.ivReturn);
-    }
-    public void returnClicked(){
-        ivReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }
